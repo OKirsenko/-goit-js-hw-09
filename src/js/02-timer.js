@@ -13,7 +13,7 @@ startBtn.addEventListener('click', onStartClick);
 
 let selectedDateMs = 0;
 let currentDateMs = 0;
-let difference = selectedDateMs - currentDateMs;
+let isActive = false;
 
 const calcuceteTime = selectedDate => {
   const currentDate = new Date();
@@ -40,6 +40,10 @@ const options = {
 flatpickr(inputEl, options);
 
 function onStartClick() {
+  if (isActive) {
+    return;
+  }
+  isActive = true;
   let difference = selectedDateMs - currentDateMs;
   setInterval(() => {
     difference -= 1000;
