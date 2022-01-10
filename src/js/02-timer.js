@@ -41,10 +41,15 @@ flatpickr(inputEl, options);
 
 function onStartClick() {
   let difference = selectedDateMs - currentDateMs;
-  const time = convertMs(difference);
-  const formatTime = addLeadingZero(time);
-  console.log(formatTime);
-  let intervalId = setInterval(() => {}, 1000);
+  setInterval(() => {
+    difference -= 1000;
+    const time = convertMs(difference);
+    const formatTime = addLeadingZero(time);
+    daysEl.textContent = formatTime.days;
+    hoursEl.textContent = formatTime.hours;
+    minutesEl.textContent = formatTime.minutes;
+    secondsEl.textContent = formatTime.seconds;
+  }, 1000);
 }
 
 function convertMs(ms) {
