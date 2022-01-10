@@ -20,8 +20,8 @@ const calcuceteTime = selectedDate => {
   selectedDateMs = selectedDate.getTime();
   currentDateMs = currentDate.getTime();
   if (selectedDateMs < currentDateMs) {
-    // window.alert('Please choose a date in the future');
-    console.log('Please choose a date in the future');
+    window.alert('Please choose a date in the future');
+    // console.log('Please choose a date in the future');
     return;
   }
   startBtn.removeAttribute('disabled');
